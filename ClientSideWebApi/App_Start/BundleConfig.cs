@@ -20,11 +20,14 @@ namespace ClientSideWebApi
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/_references.js",
                       "~/Scripts/bootstrap.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/MainCSS/Main").Include(
+                "~/Content/MainCSS/MainCSS.min.css"));
+
+            bundles.Add(new StyleBundle("~/Content/BootstrapCSS").Include(
+                      "~/Content/bootstrap.css"));
         }
     }
 }

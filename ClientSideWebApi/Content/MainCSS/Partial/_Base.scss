@@ -1,0 +1,67 @@
+﻿body{
+    background: #182551;
+}
+h1{
+    color: #EEEEEE;
+}
+.infocontainer {
+    background: #EEEEEE;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    p{
+        margin: 0;
+        padding: 0;
+    }
+}
+.bold{
+    font-weight: bold;
+}
+.red {
+    color: #FF0000;
+}
+
+select {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    max-width: 250px;
+}
+
+.myform {
+    label {
+        color: #FFF;
+        margin-right: 10px;
+    }
+
+    input[type="text"] {
+        background: #FFF;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    textarea {
+        background: #FFF;
+        border: 1px solid #000;
+        border-radius: 5px;
+        padding: 5px;
+        width: 100%;
+        max-width: 250px;
+        resize: none;
+        height: 130px;
+    }
+}
+.mb-1{
+    margin-bottom: 10px;
+}
+.field-validation-error{
+    color: #ffd800;
+}
+#selectedCityContainer{
+    display: none;
+}

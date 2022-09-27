@@ -1,0 +1,46 @@
+﻿@model AddCityWithCountryViewModel
+@{
+    ViewBag.Title = "AddCityWithCountry";
+}
+
+<div class="clearfix">
+    <div class="col-xs-12">
+        <h1>Add City With Country</h1>
+    </div>
+    <div class="col-xs-12">
+        @if (Model.Countries == null)
+        {
+            <p>Der er ingen lande...</p>
+        }
+        else
+        {
+            using (Html.BeginForm("AddCityWithCountryPOST", "Home", FormMethod.Post, new { @class = "myform" }))
+            {
+                <div class="col-xs-12 mb-1">
+                    <label>Vælg Land</label>
+                    <select name="CountryId">
+                        @foreach (var country in Model.Countries)
+                        {
+                            <option value="@country.countryID">@country.countryName</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-xs-12 mb-1">
+                    @Html.LabelFor(m => m.CityName)
+                    @Html.TextBoxFor(m => m.CityName)
+                    @Html.ValidationMessageFor(m => m.CityName)
+                </div>
+                <div class="col-xs-12">
+                    @Html.LabelFor(m => m.CityDescription)
+                </div>
+                <div class="col-xs-12">
+                    @Html.TextAreaFor(m => m.CityDescription)
+                </div>
+                <div class="col-xs-12">
+                    @Html.ValidationMessageFor(m => m.CityDescription)
+                </div>
+                <button type="submit" class="btn btn-primary">Opret By</button>
+            }
+        }
+    </div>
+</div>

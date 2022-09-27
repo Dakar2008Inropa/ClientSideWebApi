@@ -1,0 +1,60 @@
+﻿@model UpdateCityViewModel
+@{
+    ViewBag.Title = "UpdateCity";
+}
+<div class="clearfix">
+    <div class="col-xs-12">
+        <h1>Update City</h1>
+    </div>
+    <div class="col-xs-12">
+        <select id="City">
+            <option value="">Ingen By Valgt</option>
+            @foreach (var city in Model.Cities)
+            {
+                <option value="@city.cityId">@city.name</option>
+            }
+        </select>
+    </div>
+    <div class="col-xs-12" id="selectedCityContainer">
+        <form method="get" action="@Url.Action("UpdateCityPOST", "Home")" enctype="multipart/form-data" class="myform">
+            <div class="col-xs-12 mb-1">
+                <input type="hidden" id="selectedCityId" name="cityid" value="" />
+                <label for="selectedCityname">Navn</label>
+                <input type="text" id="selectedCityname" name="CityName" value="" />
+            </div>
+            <div class="col-xs-12">
+                <label>Beskrivelse</label>
+            </div>
+            <div class="col-xs-12">
+                <textarea name="CityDescription" id="selectedCityDescription"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Opdater By</button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#City").change(function () {
+                if ($(this).find("option:selected").val() != "") {
+                    $("#selectedCityContainer").show();
+                    var cityId = $(this).find("option:selected").val();
+                    $.getJSON('@Url.Action("GetCityData", "Home")', { CityId: cityId }, function (data) {
+                        if (data.success) {
+                            $("#selectedCityId").val(data.citydata.cityId);
+                            $("#selectedCityname").val(data.citydata.name);
+                            $("#selectedCityDescription").text(data.citydata.description);
+                        }
+                        else {
+                            alert(data.jsonstring);
+                        }
+                    });
+                }
+                else
+                {
+                    $("#selectedCityContainer").hide();
+                }
+            });
+        })
+    </script>
+}

@@ -1,0 +1,53 @@
+﻿<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">WebAPI</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">GET <span class="caret"></span></a>
+                    <ul class="dropdown-menu inverse-dropdown">
+                        <li><a href="@Url.Action("GetCityApi", "Home", new { displaytext = "Get City Data (No Relations)" })">Get City Data (No Relations)</a></li>
+                        <li><a href="@Url.Action("GetCityApi", "Home", new { displaytext = "Get City Data (With Relations)", relations = true })">Get City Data (With Relations)</a></li>
+                        <li><a href="#">Get City Languages</a></li>
+                        <li><a href="#">Get City POI</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">POST <span class="caret"></span></a>
+                    <ul class="dropdown-menu inverse-dropdown">
+                        <li><a href="@Url.Action("AddCityWithCountry", "Home")">Add City With Country</a></li>
+                        <li><a href="#">Add Languages To City</a></li>
+                        <li><a href="#">Add POI To City</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PUT <span class="caret"></span></a>
+                    <ul class="dropdown-menu inverse-dropdown">
+                        <li><a href="@Url.Action("UpdateCity", "Home")">Update City</a></li>
+                        <li><a href="#">Update Languages Of City</a></li>
+                        <li><a href="#">Update POI Of City</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DELETE <span class="caret"></span></a>
+                    <ul class="dropdown-menu inverse-dropdown">
+                        <li><a href="#">Delete City</a></li>
+                        <li><a href="#">Delete Languages Of City</a></li>
+                        <li><a href="#">Delete POI Of City</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

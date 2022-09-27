@@ -1,0 +1,115 @@
+﻿@model GetCityApiViewModel
+@{
+    ViewBag.Title = "GetCityApi";
+}
+<div class="clearfix">
+    <div class="col-xs-12">
+        <h1>@Model.DisplayText</h1>
+    </div>
+    @if (Model.Relations)
+    {
+        <div class="col-xs-12">
+            <div class="panel-group" id="cityaccordionrelation" role="tablist" aria-multiselectable="true">
+                @foreach (var city in Model.Cities)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="cityaccordionrelation-heading-@city.cityId">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#cityaccordionrelation" href="#cityaccordionrelation-collapse-@city.cityId" aria-expanded="true" aria-controls="collapse-@city.cityId">
+                                    @city.name
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="cityaccordionrelation-collapse-@city.cityId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cityaccordionrelation-heading-@city.cityId">
+                            <div class="panel-body">
+                                <div class="infocontainer clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">City Id</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.cityId</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Name</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.name</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Description</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.description</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Land</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.country.countryName</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-xs-12">
+            <div class="panel-group" id="cityaccordionrelation" role="tablist" aria-multiselectable="true">
+                @foreach (var city in Model.Cities)
+                {
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="cityaccordionrelation-heading-@city.cityId">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#cityaccordionrelation" href="#cityaccordionrelation-collapse-@city.cityId" aria-expanded="true" aria-controls="collapse-@city.cityId">
+                                    @city.name
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="cityaccordionrelation-collapse-@city.cityId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cityaccordionrelation-heading-@city.cityId">
+                            <div class="panel-body">
+                                <div class="infocontainer clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">City Id</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.cityId</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Name</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.name</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Description</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <p class="bold red">@city.description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
