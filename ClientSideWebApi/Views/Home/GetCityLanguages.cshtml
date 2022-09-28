@@ -1,0 +1,54 @@
+﻿@model GetCityApiViewModel
+@{
+    ViewBag.Title = "GetCityLanguages";
+}
+
+<div class="clearfix">
+    <div class="col-xs-12">
+        <h1>Get City Languages</h1>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel-group" id="cityaccordionrelation" role="tablist" aria-multiselectable="true">
+            @foreach (var city in Model.Cities)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="cityaccordionrelation-heading-@city.cityId">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#cityaccordionrelation" href="#cityaccordionrelation-collapse-@city.cityId" aria-expanded="true" aria-controls="collapse-@city.cityId" class="displayblock">
+                                @city.name
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="cityaccordionrelation-collapse-@city.cityId" class="panel-collapse collapse" role="tabpanel" aria-labelledby="cityaccordionrelation-heading-@city.cityId">
+                        <div class="panel-body">
+                            @if (city.cityLanguages.Count > 0)
+                            {
+                                <div class="infocontainer clearfix">
+                                    <div class="col-xs-12">
+                                        <div class="col-xs-6">
+                                            <p class="bold">Talte Sprog</p>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            @foreach (var language in city.cityLanguages)
+                                            {
+                                                <p class="bold red">@language.languageName</p>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="clearfix">
+                                    <div class="col-xs-12 text-center p-1">
+                                        <p class="nospacing font-size-xl bold">Byen har ingen sprog tildelt...</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

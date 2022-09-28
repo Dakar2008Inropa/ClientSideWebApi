@@ -57,6 +57,13 @@ namespace ClientSideWebApi.Controllers
             return View(vm);
         }
 
+        public ActionResult GetCityLanguages()
+        {
+            GetCityApiViewModel vm = new GetCityApiViewModel();
+            vm.Cities = JSONHelper.Deserialize<List<CityWebApi>>(WebClientHelper.GetJson("https://cityinfo.buchwaldshave34.dk/api/City?includeRelations=true&UseLazyLoading=true&UseMapster=true&UserName=Daniel_H1PD081122"));
+            return View(vm);
+        }
+
         [HttpPost]
         public ActionResult AddCityWithCountryPOST(string CityName, string CityDescription, int CountryId)
         {

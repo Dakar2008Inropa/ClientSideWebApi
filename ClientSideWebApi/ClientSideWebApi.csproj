@@ -188,6 +188,7 @@
     <Content Include="Views\Home\AddCityWithCountry.cshtml" />
     <Content Include="Views\Home\UpdateCity.cshtml" />
     <Content Include="Views\Home\DeleteCity.cshtml" />
+    <Content Include="Views\Home\GetCityLanguages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

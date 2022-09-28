@@ -21,11 +21,15 @@ body {
 
 h1 {
   color: #EEEEEE;
+  text-shadow: #000 2px 2px;
+  font-weight: bold;
+  padding-bottom: 10px;
 }
 
 .infocontainer {
   background: #EEEEEE;
   border-radius: 10px;
+  border: #000 solid 1px;
   padding: 10px;
   margin: 10px;
 }
@@ -101,4 +105,81 @@ select {
 .btn-block-maxwidth {
   width: 100%;
   max-width: 250px;
+}
+
+.displayblock {
+  display: block !important;
+  padding: 10px 15px;
+}
+
+.panel-heading {
+  padding: 0 !important;
+}
+
+.panel-title {
+  background: #ff8400;
+  background: linear-gradient(180deg, #ff8400 0%, #ff4400 100%);
+  border-bottom: #000 solid 1px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFF;
+  text-shadow: #000 1px 1px;
+}
+
+.panel {
+  border: none;
+}
+
+.panel-body {
+  padding: 0 !important;
+}
+
+@media screen and (max-width: 767px) {
+  select {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    max-width: unset;
+  }
+
+  .myform label {
+    color: #FFF;
+    margin-right: 10px;
+  }
+  .myform input[type=text] {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    max-width: unset;
+  }
+  .myform textarea {
+    background: #FFF;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    resize: none;
+    height: 130px;
+    max-width: unset;
+  }
+  .myform button {
+    width: 100%;
+    max-width: unset;
+  }
+}
+.p-1 {
+  padding: 10px;
+}
+
+.nospacing {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.font-size-xl {
+  font-size: 1.5em;
 }

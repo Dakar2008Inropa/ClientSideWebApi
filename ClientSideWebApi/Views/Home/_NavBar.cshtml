@@ -19,7 +19,7 @@
                     <ul class="dropdown-menu inverse-dropdown">
                         <li><a href="@Url.Action("GetCityApi", "Home", new { displaytext = "Get City Data (No Relations)" })">Get City Data (No Relations)</a></li>
                         <li><a href="@Url.Action("GetCityApi", "Home", new { displaytext = "Get City Data (With Relations)", relations = true })">Get City Data (With Relations)</a></li>
-                        <li><a href="#">Get City Languages</a></li>
+                        <li><a href="@Url.Action("GetCityLanguages", "Home")">Get City Languages</a></li>
                         <li><a href="#">Get City POI</a></li>
                     </ul>
                 </li>
