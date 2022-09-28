@@ -1,0 +1,49 @@
+﻿@model DeleteCityViewModel
+@{
+    ViewBag.Title = "DeleteCity";
+}
+<div class="clearfix">
+    <div class="col-xs-12">
+        <h1>Delete City</h1>
+    </div>
+    <div class="col-xs-12 mb-1">
+        <select id="City">
+            <option value="">Ingen By Valgt</option>
+            @foreach (var city in Model.Cities)
+            {
+                <option value="@city.cityId">ID: @city.cityId - @city.name</option>
+            }
+        </select>
+    </div>
+    <div class="col-xs-12" id="selectedCityContainer">
+        <form method="post" action="@Url.Action("DeleteCityPOST", "Home")" enctype="multipart/form-data" class="myform">
+            <input type="hidden" id="selectedCityId" name="cityid" value="" />
+            <button type="submit" class="btn btn-block-maxwidth btn-danger" id="DeleteBtn">Slet By</button>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#City").change(function () {
+                if ($(this).find("option:selected").val() != "") {
+                    $("#selectedCityContainer").show();
+                    var cityId = $(this).find("option:selected").val();
+                    $.getJSON('@Url.Action("GetCityData", "Home")', { CityId: cityId }, function (data) {
+                        if (data.success) {
+                            $("#selectedCityId").val(data.citydata.cityId);
+                            $("#DeleteBtn").text("Slet " + data.citydata.name);
+                        }
+                        else {
+                            alert(data.jsonstring);
+                        }
+                    });
+                }
+                else
+                {
+                    $("#selectedCityContainer").hide();
+                }
+            });
+        })
+    </script>
+}

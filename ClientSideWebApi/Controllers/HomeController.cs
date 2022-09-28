@@ -2,6 +2,7 @@
 using ClientSideWebApi.Models.ViewModels;
 using ClientSideWebApi.Utilities;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace ClientSideWebApi.Controllers
@@ -49,6 +50,13 @@ namespace ClientSideWebApi.Controllers
             return View(vm);
         }
 
+        public ActionResult DeleteCity()
+        {
+            DeleteCityViewModel vm = new DeleteCityViewModel();
+            vm.Cities = JSONHelper.Deserialize<List<CityWebApi>>(WebClientHelper.GetJson("https://cityinfo.buchwaldshave34.dk/api/City?includeRelations=false&UseLazyLoading=false&UseMapster=false&UserName=Daniel_H1PD081122")).Where(x => x.cityId != 0).ToList();
+            return View(vm);
+        }
+
         [HttpPost]
         public ActionResult AddCityWithCountryPOST(string CityName, string CityDescription, int CountryId)
         {
@@ -56,8 +64,8 @@ namespace ClientSideWebApi.Controllers
             city.name = CityName;
             city.description = CityDescription;
             city.countryID = CountryId;
-            WebClientHelper.UploadJson("https://cityinfo.buchwaldshave34.dk/api/City?UserName=Daniel_H1PD081122", JSONHelper.Serialize(city));
-            return RedirectToAction("Index", "Home");
+            string response = WebClientHelper.UploadJson("https://cityinfo.buchwaldshave34.dk/api/City?UserName=Daniel_H1PD081122", JSONHelper.Serialize(city));
+            return RedirectToAction("Index", "Home", new { response });
         }
 
         public JsonResult GetCityData(int CityId)
@@ -72,6 +80,13 @@ namespace ClientSideWebApi.Controllers
                 CityWebApi thiscity = JSONHelper.Deserialize<CityWebApi>(json);
                 return Json(new { success = true, responseText = "City found", citydata = thiscity }, JsonRequestBehavior.AllowGet);
             }
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCityPOST(int cityid)
+        {
+            string response = WebClientHelper.UploadJson($"https://cityinfo.buchwaldshave34.dk/api/City/{cityid}?UserName=Daniel_H1PD081122", "", "DELETE");
+            return RedirectToAction("Index", "Home", new { response });
         }
 
         public ActionResult UpdateCityPOST(int cityid, string CityName, string CityDescription)

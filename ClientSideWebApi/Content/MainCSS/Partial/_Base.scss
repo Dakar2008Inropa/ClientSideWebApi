@@ -59,9 +59,22 @@ select {
 .mb-1{
     margin-bottom: 10px;
 }
+.mt-1{
+    margin-top: 10px;
+}
 .field-validation-error{
     color: #ffd800;
 }
 #selectedCityContainer{
     display: none;
+}
+.text-white{
+    color: #FFFFFF;
+}
+.text-orange{
+    color: #ffb400
+}
+.btn-block-maxwidth{
+    width: 100%;
+    max-width: 250px;
 }

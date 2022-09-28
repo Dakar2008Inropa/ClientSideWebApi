@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\CityWebApi.cs" />
     <Compile Include="Models\ViewModels\AddCityWithCountryViewModel.cs" />
+    <Compile Include="Models\ViewModels\DeleteCityViewModel.cs" />
     <Compile Include="Models\ViewModels\GetCityApiViewModel.cs" />
     <Compile Include="Models\ViewModels\UpdateCityViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -186,6 +187,7 @@
     <Content Include="Views\Home\GetCityApi.cshtml" />
     <Content Include="Views\Home\AddCityWithCountry.cshtml" />
     <Content Include="Views\Home\UpdateCity.cshtml" />
+    <Content Include="Views\Home\DeleteCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

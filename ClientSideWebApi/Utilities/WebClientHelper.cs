@@ -30,7 +30,15 @@ namespace ClientSideWebApi.Utilities
                 WebClient client = new WebClient();
                 client.Encoding = System.Text.Encoding.UTF8;
                 client.Headers.Add("Content-Type", "application/json");
-                string result = client.UploadString(url, method, json);
+                string result;
+                if (string.IsNullOrWhiteSpace(method))
+                {
+                    result = client.UploadString(url, json);
+                }
+                else
+                {
+                    result = client.UploadString(url, method, json);
+                }
                 return result;
             }
             catch (WebException ex)
