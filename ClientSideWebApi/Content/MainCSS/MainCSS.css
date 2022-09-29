@@ -1,6 +1,6 @@
 ﻿.navbar {
   border-radius: 0 !important;
-  margin-bottom: 0;
+  margin-bottom: 25px;
 }
 
 .inverse-dropdown {
@@ -17,6 +17,7 @@
 
 body {
   background: #182551;
+  color: #FFF;
 }
 
 h1 {
